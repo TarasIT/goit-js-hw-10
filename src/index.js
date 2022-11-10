@@ -31,7 +31,11 @@ function searchCountry(event) {
         clearCountriesList();
         clearSelectedCountry();
         Notiflix.Notify.info(
-          'Too many matches found. Please enter a more specific name.'
+          'Too many matches found. Please enter a more specific name.',
+          {
+            width: '500px',
+            fontSize: '20px',
+          }
         );
       }
       if (country.length >= 2 && country.length <= 10) {
@@ -47,7 +51,10 @@ function searchCountry(event) {
     .catch(() => {
       clearCountriesList();
       clearSelectedCountry();
-      Notiflix.Notify.failure('Oops, there is no country with that name.');
+      Notiflix.Notify.failure('Oops, there is no country with that name.', {
+        width: '500px',
+        fontSize: '20px',
+      });
     });
 }
 
@@ -59,7 +66,7 @@ function renderSelectedCountry(country) {
 
       return `
             <div class="container">
-              <img class="flag" src="${flags.svg}" width="100" height="70" alt="The flag of ${name.official}">
+              <img class="flag" src="${flags.svg}" width="130" height="100" alt="The flag of ${name.official}">
               <h1 class="country-title">${name.official}</h1>
             </div>
             <p><span class="option">Capital:</span> ${capital}</p>
@@ -78,7 +85,7 @@ function renderCountriesList(country) {
 
       return `
             <li class="country-preview">
-              <img class="flag" src="${flags.svg}" width="50" height="30" alt="The flag of ${name.official}">
+              <img class="flag" src="${flags.svg}" width="80" height="50" alt="The flag of ${name.official}">
               <p>${name.official}</p>
             </li>
         `;
